@@ -3,15 +3,10 @@ namespace _25_05_23
     public partial class Form1 : Form
     {
         private const int maxCount = 256;
-        private int it = 0;
-        private int x1;
-        private int y1;
-        private int x;
-        private int y;
-        private int x_mouse_down;
-        private int y_mouse_down;
-        private int width;
-        private int height;
+        private int num = 0;
+        private int x, y, x1, y1;
+        private int x_mouse_down, y_mouse_down;
+        private int width, height;
         private int flag1 = 0;
         private int flag2 = 0;
 
@@ -44,6 +39,7 @@ namespace _25_05_23
                 this.y1 = e.Y;
                 this.width = this.x1 - this.x_mouse_down;
                 this.height = this.y1 - this.y_mouse_down;
+
                 if (this.width <= 0 || this.height <= 0)
                 {
                     if (this.width > 0 && this.height < 0)
@@ -66,7 +62,7 @@ namespace _25_05_23
                 }
                 this.Controls[indexButton].Location = new Point(this.x, this.y);
                 this.Controls[indexButton].Size = new Size(this.width, this.height);
-                ++this.it;
+                ++this.num;
                 indexButton++;
             }
 
@@ -106,10 +102,10 @@ namespace _25_05_23
                 this.SuspendLayout();
                 Button button = new Button();
                 button.Location = new Point(e.X, e.Y);
-                button.Name = "button" + indexButton;
+                button.Name = "button " + indexButton;
                 button.Size = new Size(30, 30);
                 button.TabIndex = indexButton;
-                button.Text = "button" + indexButton;
+                button.Text = "button " + indexButton;
                 button.UseVisualStyleBackColor = true;
                 this.Controls.Add(button);
                 this.flag2 = 1;
